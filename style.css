@@ -1,0 +1,712 @@
+/*
+Theme Name: bread
+Theme URI: テーマのURL
+Author:作者名/会社名
+Author URI: 作者/会社のURL
+Description: テーマの説明
+Version: テーマのバージョン
+*/
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /*padding、borderの合計値を100%に合わせる必要がなくなるため、指定が楽になる*/
+}
+
+
+
+
+/**
+ * ******************************************************************************
+ * header navgation
+ * ******************************************************************************
+ */
+
+
+
+
+ header {
+    display: flex;/*navタグを横並びにする*/
+    justify-content: space-around;/*等間隔に間を開けてくれる*/
+    align-items: center;
+    min-height: 15vh;
+    background-color: rgb(255, 255, 255);
+    position: sticky;
+    top: 0;
+    z-index: 5;
+}
+
+
+
+
+/********************************
+/*My Profile ロゴのアニメーション*/
+/********************************/
+
+
+
+
+
+.logo {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: 10vh;
+    font-size: 1.5rem;
+    letter-spacing: .7rem;
+    color: #000000;
+    font-family: 'Bebas Neue', sans-serif;
+}
+
+
+
+@media (max-width: 786px) {
+  .logo {
+      min-height: 7.5vh;
+      font-size: .9rem;
+      letter-spacing: .1rem;
+  }
+}
+
+
+
+
+/********************************
+/*nav menu*/
+/********************************/
+
+
+
+
+
+header nav ul {
+    display: flex;
+    justify-content: space-around;;/*タグが増えても。等間隔に間を開けてくれる*/
+    width: 38%;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.8s ease-in-out;
+}
+
+header nav ul li {
+    list-style: none;
+}
+
+
+
+@media (max-width: 1024px) {
+  header {
+      min-height: 10vh;
+}
+header nav ul {
+      width: 55%;
+  }
+}
+@media (max-width: 786px) {
+  body {
+      overflow-x: hidden;/*右にスクロールできなくする*/
+    }
+    header nav ul {
+      position: absolute;
+      right: 0;
+      height: 92vh;
+      top: 8vh;
+      background-color:  rgb(255, 255, 255);
+      display: block;
+      width: 50%;
+      transform: translateX(100%);
+      z-index: 5;
+  } 
+  header nav ul li {
+      opacity: 0;
+      text-align: center;
+      padding: 40px 0 40px;
+    }
+}
+
+
+
+
+/********************************
+/*nav menu ホバーしたときのエフェクト*/
+/********************************/
+
+
+
+
+
+.nav-links  a {
+  position: relative;
+  text-decoration: none;
+  letter-spacing: .2rem;
+  font-size: 1rem;
+  color: #000000;
+}
+
+.nav-links li a::after {
+  position: absolute;
+  content: "";
+  display: block;
+  height: 1px;
+  background-color: #000000;
+  bottom: -10px;
+  left: 0;
+  width: 0;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+.nav-links  li a:hover::after {
+  width: 100%;
+}
+
+
+
+
+/********************************
+/*ハンバーガーナビゲーション*/
+/********************************/
+
+
+
+
+
+.burger {
+    display: none;
+    cursor: pointer; /*要素にマウスを乗せたときに、カーソルがポインターに変化*/
+}
+
+@media (max-width: 786px) {
+    .burger {
+      display: block;
+    }
+}
+
+.nav-active {
+    transform: translateX(0%) !important ;
+}
+
+
+.burger div{
+    width: 25px;
+    height: 1px;
+    background-color: #fff;
+    margin: 5px;
+    transition: all 0.5s ease-in-out ;
+}
+
+@keyframes navLinksFade {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.toggle .line1 {
+    transform: rotate(-45deg) translate(-1px,6px);
+}
+.toggle .line2 {
+    opacity: 0;
+}
+.toggle .line3 {
+    transform: rotate(45deg) translate(-3px,-8px);;
+}
+
+
+
+
+/********************************
+/*main img & text*/
+/********************************/
+
+
+
+
+
+ .header-img {
+    position: relative;
+    background-image: url(../images/header.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0;
+    height: 600px;
+}
+
+
+@media (max-width: 768px) {
+
+    .header-img {
+        height: 200px;
+    }
+}
+
+
+
+
+/**
+ * ******************************************************************************
+ * profile
+ * ******************************************************************************
+ */
+
+
+
+
+
+#profile {
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    height: 820px;
+    padding-top: 200px;
+}
+
+
+.profile-flexAll {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 120px;
+}
+
+
+.profile {
+    max-width: 550px;
+    padding: 60px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    background-color: #ffffff;
+}
+
+.profile-title {
+    text-align: left;
+    padding-bottom: 40px;
+    letter-spacing: .3rem;
+}
+
+
+.profile p {
+    padding-bottom: 70px;
+    text-align: left;
+    line-height: 42px;
+    font-size: 18px;
+    font-weight: lighter;
+}
+
+
+.profile-img {
+    position: relative;
+    display: flex;
+    padding-left: 90px;
+}
+
+
+.profile-img img {
+    width: 65%; 
+    max-width: 500px;
+}
+
+
+.profile-img-sub {
+    position: absolute;
+    padding-top: 245px;
+    text-align: right;
+}
+
+
+
+@media (max-width: 768px) {
+  #profile {
+    padding: 100px 0 100px;
+    height: 550px;
+    position: relative;
+  }
+.profile {
+    position: absolute;
+    top: 120px;
+    left: 40px;
+    right: 40px;
+    padding: 20px 40px;
+}
+
+.profile  h2 {
+    text-align: center;
+    font-size: 1px;
+    letter-spacing: .2rem;
+    padding-right: 100px;
+}
+
+.profile p {
+    text-align: initial;
+    line-height: 25px;
+    font-size: 10px;
+}
+
+.profile-title p {
+    padding: 5px 0 35px;
+    font-size: 30px;
+}
+
+.profile-img {
+    position: absolute;
+    padding-left: 115px;
+    top: 100px;
+}
+.profile-img img {
+    width: 70%;
+}
+.profile-img-sub {
+    width: 70%;
+    top: 30px;
+    right: 10px;
+}
+}
+
+
+
+
+/********************************
+/*view more ボタン*/
+/********************************/
+
+
+
+
+.button1 a {
+    background: #eee;
+    text-decoration: none;
+    border-radius: 50px;
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 260px;
+    padding: 10px 25px;
+    color: #313131;
+    transition: 0.3s ease-in-out;
+    font-weight: 500;
+}
+.button1 a:hover {
+    background: #313131;
+    color: #FFF;
+}
+.button1 a:after {
+    content: '';
+    width: 5px;
+    height: 5px;
+    border-top: 3px solid #313131;
+    border-right: 3px solid #313131;
+    transform: rotate(45deg) translateY(-50%);
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    border-radius: 1px;
+    transition: 0.3s ease-in-out;
+}
+.button1 a:hover:after {
+    border-color: #FFF;
+}
+
+
+
+
+
+
+
+
+
+  @media (max-width: 768px) {
+    .veiw-button {
+      max-width: 140px; 
+      margin: 30px 0 0 0 ;
+      text-align: left;
+    }
+    
+    a.btn_a {
+      display: inline-block;
+      font-size: 5px;
+      padding: 8px 16px;
+  }
+  }
+
+
+
+
+/**
+ * ******************************************************************************
+ * works
+ * ******************************************************************************
+ */
+
+
+
+
+
+ .topworks {
+    text-align:center;
+    margin: 0 auto;
+    padding: 50px 0 150px 50px;
+}
+
+
+
+
+/********************************
+/*works のタイトルアニメーション*/
+/********************************/
+
+
+
+
+
+.works-title h2 {
+    text-align: center;
+    font-size: 2rem;
+    letter-spacing: .2rem;
+    padding: 120px 0 80px 0;
+    margin-bottom: 0; 
+    color: #000000;
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden; /*左右アニメーションで画面からはみ出る際に出る横スクロールバーを隠す*/
+}
+
+
+
+
+/********************************
+/*works の画像*/
+/********************************/
+
+.bread_to_sweets {
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 40px;
+    padding-bottom: 90px;
+    
+}
+
+.bread_to_sweets img {
+    float: left;
+    text-align: center;
+	width: 430px;
+    padding: 50px;
+    
+}
+
+
+
+@media (max-width: 768px) {
+  .topworks {
+    padding-bottom: 60px;
+}
+}
+
+
+ 
+
+@media (max-width: 786px) {
+
+.works-side h2 {
+    padding: 60px 0 60px;
+}
+}
+
+
+
+
+/********************************
+/*view more ボタン02*/
+/********************************/
+
+
+
+
+
+.button020 a {
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 240px;
+    color: #313131;
+    transition: 0.3s ease-in-out;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+
+.button020 a:before, .button020 a:after {
+  content: "";
+  position: absolute;
+  display: block;
+  transition: all 0.3s;
+  right: 0.6rem;
+  top: 50%;
+}
+.button020 a:before {
+  width: 1.4rem;
+  height: 2px;
+  background: #614f38;
+  transform: translateY(-50%);
+}
+.button020 a:after {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  border-top: solid 2px currentColor;
+  border-right: solid 2px currentColor;
+  transform: translateY(-50%) rotate(45deg);
+}
+.button020 a:hover:before {
+  width: 1.5rem;
+}
+.button020 a:hover:after {
+  opacity: 1;
+  width: 8px;
+  height: 8px;
+}
+
+
+
+
+@media (max-width: 786px) {
+
+  .veiw-button02 {
+      max-width: 140px;
+      margin: 35px auto 0;
+  }
+
+  .btn-02 {
+      display: inline-block;
+      font-size: 5px;
+      padding: 8px 16px;
+  }
+  }
+
+
+
+
+/********************************
+/*footer*/
+/********************************/
+
+
+
+
+
+
+.footer {
+    font-size: 12px; 
+    width: 100%;
+    padding: 50px 0;
+    background-color: rgb(255, 255, 255);
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    color: #000000;
+ }
+
+
+ @media (max-width: 768px) {
+  .footer {
+      padding: 35px 0;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+* Concept の　中身
+* *********************************/
+
+
+
+
+.concept-in {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 180px 150px 0;
+  }
+  @media (max-width: 786px) {
+    .concept-in {
+      display: block;
+      padding-top: 50px;
+    }
+  }
+  
+  
+  
+  
+  
+  .concept-left {
+    padding-right: 40px;
+  }
+  @media (max-width: 786px) {
+    .concept-left {
+      padding: 0;
+    }
+  }
+  
+  @media (max-width: 786px) {
+    .concept-left p {
+      padding-top: 90px;
+    }
+  }
+  
+  
+  
+  
+  
+  .concept-right {
+    text-align: right;
+  }
+  @media (max-width: 786px) {
+    .concept-right {
+      text-align: center;
+    }
+  }
+  
+  
+  
+  
+  
+  .concept-right img {
+    width: 100%;
+  }
+  @media (max-width: 786px) {
+    .concept-right img {
+      padding-top: 45px;
+    }
+  }
+  
+  
